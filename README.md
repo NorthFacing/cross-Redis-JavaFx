@@ -19,3 +19,4 @@ mvn jfx:native
     - [Deploying JavaFX Applications](https://docs.oracle.com/javafx/2/deployment/jfxpub-deployment.htm)
 * [YouTube - JavaFX Java GUI Tutorial](https://www.youtube.com/watch?v=FLkOX4Eez6o&list=PL6gx4Cwl9DGBzfXLWLSYVy8EbTdpGbUIG)    
 * [GitHub - AwesomeJavaFX](https://github.com/mhrimaz/AwesomeJavaFX)
+* [Oracle - Self-Contained Application Packaging](https://docs.oracle.com/javafx/2/deployment/self-contained-packaging.htm#BCGICFDB)
