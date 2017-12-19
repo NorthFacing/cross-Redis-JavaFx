@@ -1,47 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.*?>
-<?import com.jfoenix.transitions.hamburger.HamburgerBackArrowBasicTransition?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.*?>
-<?import java.lang.String?>
-<StackPane fx:id="root" xmlns:fx="http://javafx.com/fxml/1"
-           xmlns="http://javafx.com/javafx/2.2">
-    <!-- Header -->
-    <BorderPane>
-        <top>
-            <VBox spacing="20">
-                <JFXToolbar>
-                    <leftItems>
-                        <JFXRippler maskType="CIRCLE" style="-fx-ripple-color:WHITE;">
-                            <StackPane fx:id="titleBurgerContainer">
-                                <JFXHamburger fx:id="titleBurger">
-                                    <HamburgerBackArrowBasicTransition/>
-                                </JFXHamburger>
-                            </StackPane>
-                        </JFXRippler>
-                        <Label>Material Design</Label>
-                    </leftItems>
-                    <rightItems>
-                        <JFXRippler fx:id="optionsRippler" maskType="CIRCLE"
-                                    style="-fx-ripple-color:WHITE;">
-                            <StackPane fx:id="optionsBurger">
-                                <JFXHamburger styleClass="jfx-options-burger">
-                                </JFXHamburger>
-                            </StackPane>
-                        </JFXRippler>
-                    </rightItems>
-                </JFXToolbar>
-            </VBox>
-        </top>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
 
-        <!-- Content Area -->
-        <center>
-            <JFXDrawer fx:id="drawer" defaultDrawerSize="250" direction="LEFT">
-                <styleClass>
-                    <String fx:value="body"/>
-                </styleClass>
-            </JFXDrawer>
-        </center>
-    </BorderPane>
+<StackPane fx:id="root" prefHeight="118.0" prefWidth="399.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bob.controllers.MainController">
+   <children>
+      <HBox alignment="CENTER" prefHeight="159.0" prefWidth="430.0">
+         <children>
+            <JFXButton buttonType="RAISED" text="hello" />
+            <JFXButton buttonType="RAISED" text="word" />
+            <JFXButton buttonType="RAISED" text="!!!" />
+         </children>
+      </HBox>
+   </children>  
 </StackPane>
