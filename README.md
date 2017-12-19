@@ -1,6 +1,13 @@
 # crossRedis-JavaFx
 
-* 打包指令
+## 运行指令
+可以直接启动main函数，也可以使用如下指令启动：
+```
+mvn jfx:run
+```
+
+## 打包指令
+打包完毕之后的路径位于 `target/jfx/app/native`
 ```
 mvn jfx:native
 ```
@@ -21,3 +28,4 @@ mvn jfx:native
     - [Deploying JavaFX Applications](https://docs.oracle.com/javafx/2/deployment/jfxpub-deployment.htm)
 * [Oracle - Self-Contained Application Packaging](https://docs.oracle.com/javafx/2/deployment/self-contained-packaging.htm#BCGICFDB)
 * [javafx-maven-plugin](https://github.com/javafx-maven-plugin/javafx-maven-plugin)
+* [Building and Deploying JavaFX Applications with Gradle or Maven](https://www.youtube.com/watch?v=zHb3pb6scRs)
