@@ -10,6 +10,7 @@ import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -22,11 +23,10 @@ public class CrossRedis extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 
-		Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("fxml/Main.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("/fxml/Main.fxml"));
 		primaryStage.setTitle("Hello World");
 		primaryStage.setScene(new Scene(root, 300, 275));
 		primaryStage.show();
-
 
 //		// 主面板
 //		BorderPane root = new BorderPane();
