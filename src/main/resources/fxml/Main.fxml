@@ -3,15 +3,15 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
-
-<StackPane fx:id="root" prefHeight="118.0" prefWidth="399.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bob.controllers.MainController">
-   <children>
-      <HBox alignment="CENTER" prefHeight="159.0" prefWidth="430.0">
-         <children>
-            <JFXButton buttonType="RAISED" text="hello" />
-            <JFXButton buttonType="RAISED" text="word" />
-            <JFXButton buttonType="RAISED" text="!!!" />
-         </children>
-      </HBox>
-   </children>  
+<StackPane fx:id="root" prefHeight="118.0" prefWidth="399.0" xmlns="http://javafx.com/javafx/8.0.141"
+           xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bob.controllers.MainController">
+  <children>
+    <HBox alignment="CENTER" prefHeight="159.0" prefWidth="430.0">
+      <children>
+        <JFXButton buttonType="RAISED" text="hello"/>
+        <JFXButton buttonType="RAISED" text="word"/>
+        <JFXButton buttonType="RAISED" text="!!!"/>
+      </children>
+    </HBox>
+  </children>
 </StackPane>
