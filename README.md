@@ -29,3 +29,4 @@ mvn clean jfx:native
 * [Oracle - Self-Contained Application Packaging](https://docs.oracle.com/javafx/2/deployment/self-contained-packaging.htm#BCGICFDB)
 * [javafx-maven-plugin](https://github.com/javafx-maven-plugin/javafx-maven-plugin)
 * [Building and Deploying JavaFX Applications with Gradle or Maven](https://www.youtube.com/watch?v=zHb3pb6scRs)
+* [Mac OS 开发 － 聊聊如何打包dmg文件](http://www.jianshu.com/p/c6cd257676bf)
