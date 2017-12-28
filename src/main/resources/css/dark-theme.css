@@ -1,10 +1,21 @@
 
 * {
-  -fx-primary: #2A2E37;
-  -fx-secondary: #FFFF8D;
-  -fx-primaryText: #B2B2B2;
+  /*-fx-primary: #2A2E37;*/
+  /*-fx-secondary: #FFFF8D;*/
+  /*-fx-primaryText: #B2B2B2;*/
+
+  -fx-backg-color: #2A2E37;
+  -fx-slider-color: #3c3c3c;
+  -fx-simple-text: #B2B2B2;
+  -fx-btn-text: #FFFF8D;
 }
 
 .root {
-  -fx-background-color: -fx-primary;
+  -fx-background-color: -fx-backg-color;
+}
+
+.split-pane > .split-pane-divider {
+  -fx-padding: 0;
+  -fx-border-width: 1;
+  -fx-border-color: -fx-slider-color;
 }

@@ -18,7 +18,6 @@ public class CrossRedis extends Application {
 		Parent root = FXMLLoader.load(getClass().getResource("/fxml/Main.fxml"));
 		primaryStage.setTitle("crossRedis");
 		Scene scene = new Scene(root);
-		scene.getStylesheets().addAll("css/dark-theme.css");
 		primaryStage.setScene(scene);
 		primaryStage.show();
 

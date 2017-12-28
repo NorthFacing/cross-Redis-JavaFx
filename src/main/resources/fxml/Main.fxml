@@ -26,11 +26,13 @@
     </MenuBar>
   </top>
   <center>
-    <SplitPane fx:id="centerPane" dividerPositions="0.2" stylesheets="@../css/dark-theme.css" styleClass="root">
+    <SplitPane fx:id="centrePane" dividerPositions="0.2, 0.8" stylesheets="@../css/dark-theme.css" styleClass="root">
       <VBox fx:id="leftMenu">
-        <fx:define>
-          <JFXTreeView fx:id="connTreeNods"/>
-        </fx:define>
+        <StackPane>
+          <fx:define>
+            <JFXTreeView fx:id="connTreeNods"/>
+          </fx:define>
+        </StackPane>
       </VBox>
       <StackPane fx:id="mainContent">
         <children>
