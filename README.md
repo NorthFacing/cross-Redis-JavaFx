@@ -3,7 +3,7 @@
 ## 运行指令
 可以直接启动main函数，也可以使用如下指令启动：
 ```
-mvn clean jfx:run
+jdk9 & mvn clean jfx:run
 ```
 
 ## 打包指令
@@ -16,7 +16,7 @@ mvn clean jfx:native
 
 * [JFoenix](https://github.com/jfoenixadmin/JFoenix) - JavaFX Material Design Library
 * [FontawesomeFX](https://bitbucket.org/Jerady/fontawesomefx)- Icon library
-* [lettuce](https://github.com/lettuce-io/lettuce-core/wiki) - Redis client for Java
+* [lettuce](https://github.com/lettuce-io/lettuce-core) - Redis client for Java
 
 # 参考
 
