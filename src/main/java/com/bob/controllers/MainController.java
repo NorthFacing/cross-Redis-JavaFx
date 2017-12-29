@@ -1,18 +1,20 @@
 package com.bob.controllers;
 
-import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXDialog;
-import com.jfoenix.controls.JFXDialogLayout;
-import com.jfoenix.controls.JFXPasswordField;
-import com.jfoenix.controls.JFXTextField;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.SplitPane;
 import javafx.scene.layout.StackPane;
-import javafx.scene.text.Text;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class MainController implements Initializable {
 
@@ -21,33 +23,24 @@ public class MainController implements Initializable {
 	@FXML
 	private SplitPane centrePane;
 
+	private AddConnController addController;
+
 	@FXML
 	private void addConn() {
 
-//		JFXTextField username = new JFXTextField();
-//		username.setPromptText("username");
-//		JFXPasswordField password = new JFXPasswordField();
-//		password.setPromptText("password");
-//
-//		StackPane content = new StackPane();
-//		content.getChildren().addAll(username,password);
-//
-//		JFXDialogLayout layout = new JFXDialogLayout();
-//		layout.setHeading(new Text("新增连接"));
-//		layout.setBody(content);
-//
-//		JFXButton okay = new JFXButton("确定");
-//		JFXButton cancle = new JFXButton("取消");
-//		layout.setActions(cancle, okay);
-//
-//		JFXDialog dialog = new JFXDialog(root, layout, JFXDialog.DialogTransition.CENTER, false);
-//
-//		okay.setOnAction(e -> {
-//			System.out.println("Okay");
-//		});
-//		cancle.setOnAction(e -> dialog.close());
-//
-//		dialog.show();
+		try {
+
+			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/addConn.fxml"));
+			Parent addConn = fxmlLoader.load();
+			addController = fxmlLoader.getController();
+
+			Stage stage = new Stage(StageStyle.DECORATED);
+			stage.setTitle("新增连接");
+			stage.setScene(new Scene(addConn));
+			stage.show();
+		} catch (IOException ex) {
+			Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+		}
 
 	}
 

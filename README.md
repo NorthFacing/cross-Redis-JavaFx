@@ -16,6 +16,7 @@ mvn clean jfx:native
 
 * [JFoenix](https://github.com/jfoenixadmin/JFoenix) - JavaFX Material Design Library
 * [FontawesomeFX](https://bitbucket.org/Jerady/fontawesomefx)- Icon library
+* [lettuce](https://github.com/lettuce-io/lettuce-core/wiki) - Redis client for Java
 
 # 参考
 

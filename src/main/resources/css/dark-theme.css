@@ -1,21 +1,83 @@
+/** {*/
+/*!*-fx-primary: #2A2E37;*!*/
+/*!*-fx-secondary: #FFFF8D;*!*/
+/*!*-fx-primaryText: #B2B2B2;*!*/
+
+/*-fx-backg-color: #2A2E37;*/
+/*-fx-slider-color: #3c3c3c;*/
+/*-fx-simple-text: #B2B2B2;*/
+/*-fx-btn-text: #FFFF8D;*/
+/*}*/
 
 * {
-  /*-fx-primary: #2A2E37;*/
-  /*-fx-secondary: #FFFF8D;*/
-  /*-fx-primaryText: #B2B2B2;*/
-
-  -fx-backg-color: #2A2E37;
+  -fx-primary: #2A2E37;
+  -fx-secondary: #FFFF8D;
+  -fx-primarytext: #B2B2B2;
+  -fx-blue: #1976D2;
+  -fx-red: #FF0000;
   -fx-slider-color: #3c3c3c;
-  -fx-simple-text: #B2B2B2;
-  -fx-btn-text: #FFFF8D;
 }
 
 .root {
-  -fx-background-color: -fx-backg-color;
+  -fx-background-color: -fx-primary;
 }
 
 .split-pane > .split-pane-divider {
   -fx-padding: 0;
   -fx-border-width: 1;
   -fx-border-color: -fx-slider-color;
+}
+
+.glyph-icon {
+  -fx-fill: -fx-primarytext;
+}
+
+.button {
+  -fx-text-fill: -fx-primarytext;
+  -fx-background-color: -fx-primary;
+  -fx-border-color: -fx-secondary;
+  -fx-border-radius: 20px;
+  -fx-background-radius: 20px;
+  -fx-font-size: 13pt;
+}
+
+.button:hover {
+  -fx-border-color: -fx-secondary;
+  -fx-background-color: -fx-secondary;
+  -fx-text-fill: -fx-primary;
+}
+
+.text-field {
+  -fx-text-fill: -fx-primarytext;
+  -fx-font-size: 13pt;
+  -jfx-focus-color: -fx-secondary;
+  -fx-text-fill: derive(-fx-secondary, 20%);
+}
+
+/*Login Screen Specific*/
+
+.wrong-credentials {
+  -jfx-unfocus-color: -fx-red;
+  -jfx-focus-color: -fx-red;
+}
+
+/*TablPane styling*/
+.tab {
+  -fx-background-color: -fx-primary;
+  -fx-pref-width: 350;
+  -fx-pref-height: 60;
+}
+
+.tab-header-background {
+  -fx-background-color: -fx-primary;
+}
+
+/*Menu bar Styling*/
+.menu-bar {
+  -fx-base: -fx-primary;
+  -fx-background-color: -fx-primary;
+}
+
+.context-menu {
+  -fx-background-color: derive(-fx-primary, 20%);
 }
