@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXTabPane?>
 <?import com.jfoenix.controls.JFXTreeView?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
@@ -9,36 +8,36 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
-<BorderPane fx:id="root" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.141"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.bob.controllers.MainController">
-  <top>
-    <MenuBar id="topMenu" useSystemMenuBar="true" BorderPane.alignment="CENTER">
-      <menus>
-        <Menu text="连接">
-          <MenuItem accelerator="Ctrl + N" mnemonicParsing="true" onAction="#addConn" text="新增"/>
-        </Menu>
-        <Menu text="帮助">
-          <MenuItem text="检查更新"/>
-          <MenuItem text="关于"/>
-        </Menu>
-      </menus>
-    </MenuBar>
-  </top>
-  <center>
-    <SplitPane fx:id="centrePane" dividerPositions="0.2, 0.8" stylesheets="@../css/dark-theme.css" styleClass="root">
-      <VBox fx:id="leftMenu">
-        <StackPane>
-          <fx:define>
-            <JFXTreeView fx:id="connTreeNods"/>
-          </fx:define>
+
+<StackPane fx:id="root" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.141"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="com.bob.controllers.MainController">
+  <BorderPane>
+    <top>
+      <MenuBar id="topMenu" useSystemMenuBar="true" BorderPane.alignment="CENTER">
+        <menus>
+          <Menu text="连接">
+            <MenuItem accelerator="Ctrl + N" mnemonicParsing="true" onAction="#addConn" text="新增"/>
+          </Menu>
+          <Menu text="帮助">
+            <MenuItem text="检查更新"/>
+            <MenuItem text="关于"/>
+          </Menu>
+        </menus>
+      </MenuBar>
+    </top>
+    <center>
+      <SplitPane fx:id="centrePane" dividerPositions="0.2, 0.8" stylesheets="@../css/dark-theme.css" styleClass="root">
+        <VBox fx:id="leftMenu">
+          <StackPane>
+            <fx:define>
+              <JFXTreeView fx:id="connTreeNods"/>
+            </fx:define>
+          </StackPane>
+        </VBox>
+        <StackPane fx:id="mainContent">
         </StackPane>
-      </VBox>
-      <StackPane fx:id="mainContent">
-        <children>
-          <JFXTabPane/>
-        </children>
-      </StackPane>
-    </SplitPane>
-  </center>
-</BorderPane>
+      </SplitPane>
+    </center>
+  </BorderPane>
+</StackPane>
