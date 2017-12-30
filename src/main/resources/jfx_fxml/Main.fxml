@@ -11,7 +11,7 @@
 
 <StackPane fx:id="root" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.141"
            xmlns:fx="http://javafx.com/fxml/1"
-           fx:controller="com.bob.controllers.MainController">
+           fx:controller="bob.crossRedis.controllers.MainController">
   <BorderPane>
     <top>
       <MenuBar id="topMenu" useSystemMenuBar="true" BorderPane.alignment="CENTER">
@@ -27,7 +27,7 @@
       </MenuBar>
     </top>
     <center>
-      <SplitPane fx:id="centrePane" dividerPositions="0.2, 0.8" stylesheets="@../css/dark-theme.css" styleClass="root">
+      <SplitPane fx:id="centrePane" dividerPositions="0.2, 0.8" stylesheets="@../jfx_css/dark-theme.css" styleClass="root">
         <VBox fx:id="leftMenu">
           <StackPane>
             <fx:define>

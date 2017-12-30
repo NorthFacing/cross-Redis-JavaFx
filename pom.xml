@@ -1,7 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.adolphor</groupId>
+  <groupId>bob.zhu</groupId>
   <artifactId>crossRedis</artifactId>
   <version>0.1</version>
   <packaging>jar</packaging>
@@ -21,7 +21,10 @@
     <maven.compiler.target>9</maven.compiler.target>
 
     <JAVA_HOME>${java.home}</JAVA_HOME>
-    <javafx.main.class>com.bob.CrossRedis</javafx.main.class>
+    <module.name>bob.crossRedis</module.name>
+    <applicationName>${project.artifactId}</applicationName>
+    <applicationId>${project.groupId}.${project.artifactId}</applicationId>
+    <applicationMainClass>bob.crossRedis.CrossRedis</applicationMainClass>
 
   </properties>
 
@@ -52,11 +55,13 @@
       <artifactId>fontawesomefx-fontawesome</artifactId>
       <version>4.7.0-9.1.2</version>
     </dependency>
-    <dependency>
-      <groupId>biz.paluch.redis</groupId>
-      <artifactId>lettuce</artifactId>
-      <version>4.4.2.Final</version>
-    </dependency>
+
+    <!--<dependency>-->
+    <!--<groupId>biz.paluch.redis</groupId>-->
+    <!--<artifactId>lettuce</artifactId>-->
+    <!--<version>4.4.2.Final</version>-->
+    <!--</dependency>-->
+
     <!--<dependency>-->
     <!--<groupId>org.controlsfx</groupId>-->
     <!--<artifactId>controlsfx</artifactId>-->
@@ -79,7 +84,28 @@
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.7.0</version>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>3.0.2</version>
+        <configuration>
+          <archive>
+            <manifest>
+              <addClasspath>true</addClasspath>
+              <classpathPrefix>lib/</classpathPrefix>
+              <mainClass>${applicationMainClass}</mainClass>
+            </manifest>
+          </archive>
+          <!--<outputDirectory>${project.build.directory}/lib</outputDirectory>-->
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-dependency-plugin</artifactId>
+        <version>3.0.2</version>
         <executions>
           <execution>
             <id>copy-dependencies</id>
@@ -114,29 +140,34 @@
                          uri="javafx:com.sun.javafx.tools.ant"
                          classpath="${JAVA_HOME}/lib/ant-javafx.jar"/>
 
-                <fx:application id="${project.artifactId}"
-                                name="${project.artifactId}"
-                                mainClass="${javafx.main.class}"/>
+                <fx:application id="${applicationId}"
+                                name="${applicationName}"
+                                mainClass="${applicationMainClass}"/>
 
-                <fx:resources id="appRes">
-                  <fx:fileset dir="${project.build.directory}" includes="${project.artifactId}.jar"/>
-                  <fx:fileset dir="${project.build.directory}/lib"/>
-                </fx:resources>
-
-                <fx:jar destfile="${project.build.directory}/${project.artifactId}.jar">
-                  <fx:application refid="${project.artifactId}"/>
-                  <fx:resources refid="appRes"/>
-                  <fileset dir="${project.build.directory}/classes"/>
+                <fx:jar destfile="${project.build.directory}/lib/${applicationName}-jfx.jar">
+                  <fx:application refid="${applicationId}"/>
+                  <fx:fileset dir="${project.build.directory}/classes"/>
+                  <fx:permissions elevated="true"/>
                 </fx:jar>
 
                 <fx:deploy width="300" height="250"
                            outdir="${project.build.directory}/native"
                            embedJNLP="true"
-                           outfile="${project.artifactId}"
-                           nativeBundles="all">
-                  <fx:application refId="${project.artifactId}"/>
-                  <fx:resources refid="appRes"/>
+                           outfile="${applicationName}"
+                           verbose="true"
+                           module="${module.name}"
+                           nativeBundles="image">
+                  <!--image,installer-->
+                  <fx:application refId="${applicationId}"/>
+
+                  <fx:permissions elevated="true"/>
+
                   <fx:info title="${project.artifactId}" vendor="${project.groupId}"/>
+
+                  <fx:runtime strip-native-commands="false">
+                    <fx:module-path value="${project.build.directory}/lib"/>
+                  </fx:runtime>
+
                 </fx:deploy>
               </target>
 

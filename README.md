@@ -17,15 +17,7 @@ mvn clean package
 
 # 参考
 
-* [JavaFX Tutorial](https://www.tutorialspoint.com/javafx/index.htm)
-* [YouTube - JavaFX 8 Tutorials](https://www.youtube.com/watch?v=X7P8t-VLGBU&list=PLeyMYhyx349ZZLdyNf1I7RODb83UwkJYo)
-* [YouTube - JavaFX Java GUI Tutorial](https://www.youtube.com/watch?v=FLkOX4Eez6o&list=PL6gx4Cwl9DGBzfXLWLSYVy8EbTdpGbUIG)    
-* [YouTube - JavaFX Material Design](https://www.youtube.com/playlist?list=PLhs1urmduZ29LNYi_MaoU60JemQ6Aei6A)
-* [Oracle - What Is JavaFX](https://docs.oracle.com/javafx/2/overview/jfxpub-overview.htm)
-    - [Getting Started with JavaFX Scene Builder](https://docs.oracle.com/javafx/scenebuilder/1/get_started/jsbpub-get_started.htm)
-    - [Deploying JavaFX Applications](https://docs.oracle.com/javafx/2/deployment/jfxpub-deployment.htm)
-* [Oracle - Self-Contained Application Packaging](https://docs.oracle.com/javafx/2/deployment/self-contained-packaging.htm#BCGICFDB)
-* [javafx-maven-plugin](https://github.com/javafx-maven-plugin/javafx-maven-plugin)
-* [Building and Deploying JavaFX Applications with Gradle or Maven](https://www.youtube.com/watch?v=zHb3pb6scRs)
-* [Mac OS 开发 － 聊聊如何打包dmg文件](http://www.jianshu.com/p/c6cd257676bf)
+* [Oracle - jigsaw](http://openjdk.java.net/projects/jigsaw/quick-start#multimodulecompile)
+* [Oracle - Packaging](https://docs.oracle.com/javase/9/deploy/packaging.htm#JSDPG665)
 * [Oracle - JavaFX Ant Tasks](https://docs.oracle.com/javase/9/deploy/javafx-ant-tasks.htm)
+* [Mac OS 开发 － 聊聊如何打包dmg文件](http://www.jianshu.com/p/c6cd257676bf)

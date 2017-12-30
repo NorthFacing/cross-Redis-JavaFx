@@ -1,4 +1,4 @@
-package com.bob.controllers;
+package bob.crossRedis.controllers;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -19,18 +19,18 @@ import java.util.logging.Logger;
 public class MainController implements Initializable {
 
 	@FXML
-	private StackPane root;
+	public StackPane root;
 	@FXML
-	private SplitPane centrePane;
+	public SplitPane centrePane;
 
 	private AddConnController addController;
 
 	@FXML
-	private void addConn() {
+	public void addConn() {
 
 		try {
 
-			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/addConn.fxml"));
+			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/jfx_fxml/addConn.fxml"));
 			Parent addConn = fxmlLoader.load();
 			addController = fxmlLoader.getController();
 

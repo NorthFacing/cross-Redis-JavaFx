@@ -1,4 +1,4 @@
-package com.bob.controllers;
+package bob.crossRedis.controllers;
 
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
@@ -11,16 +11,16 @@ import javafx.fxml.Initializable;
 public class AddConnController implements Initializable {
 
 	@FXML
-	private JFXTextField username;
+	public JFXTextField username;
 	@FXML
-	private JFXPasswordField password;
+	public JFXPasswordField password;
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
 	}
 
 	@FXML
-	private void handleLoginButtonAction(ActionEvent event) {
+	public void handleLoginButtonAction(ActionEvent event) {
 		String uname = username.getText();
 
 		if (true) {
@@ -32,7 +32,7 @@ public class AddConnController implements Initializable {
 	}
 
 	@FXML
-	private void handleCancelButtonAction(ActionEvent event) {
+	public void handleCancelButtonAction(ActionEvent event) {
 		System.exit(0);
 	}
 
