@@ -1,16 +1,13 @@
 # crossRedis-JavaFx
 
 ## 运行指令
-可以直接启动main函数，也可以使用如下指令启动：
-```
-jdk9 & mvn clean jfx:run
-```
+可以直接启动main函数
 
 ## 打包指令
-打包完毕之后的路径位于 `target/jfx/app/native`
 ```
-mvn clean jfx:native
+mvn clean package
 ```
+打包之后的文件位于 `target/native`
 
 # Libraries Used
 
@@ -31,3 +28,4 @@ mvn clean jfx:native
 * [javafx-maven-plugin](https://github.com/javafx-maven-plugin/javafx-maven-plugin)
 * [Building and Deploying JavaFX Applications with Gradle or Maven](https://www.youtube.com/watch?v=zHb3pb6scRs)
 * [Mac OS 开发 － 聊聊如何打包dmg文件](http://www.jianshu.com/p/c6cd257676bf)
+* [Oracle - JavaFX Ant Tasks](https://docs.oracle.com/javase/9/deploy/javafx-ant-tasks.htm)

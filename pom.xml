@@ -16,14 +16,24 @@
   <properties>
     <project.Encoding>UTF-8</project.Encoding>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.release>1.8</maven.compiler.release>
-    <maven.compiler.source>1.8</maven.compiler.source>
-    <maven.compiler.target>1.8</maven.compiler.target>
+    <maven.compiler.release>9</maven.compiler.release>
+    <maven.compiler.source>9</maven.compiler.source>
+    <maven.compiler.target>9</maven.compiler.target>
+
+    <JAVA_HOME>${java.home}</JAVA_HOME>
+    <javafx.main.class>com.bob.CrossRedis</javafx.main.class>
+
   </properties>
 
   <pluginRepositories>
     <pluginRepository>
+      <id>nexus-aliyun</id>
+      <name>aliyun</name>
+      <url>http://maven.aliyun.com/nexus/content/groups/public</url>
+    </pluginRepository>
+    <pluginRepository>
       <id>oss-sonatype-snapshots</id>
+      <name>sonatype</name>
       <url>https://oss.sonatype.org/content/groups/public/</url>
       <snapshots>
         <enabled>true</enabled>
@@ -45,7 +55,7 @@
     <dependency>
       <groupId>biz.paluch.redis</groupId>
       <artifactId>lettuce</artifactId>
-      <version>4.4.0.Final</version>
+      <version>4.4.2.Final</version>
     </dependency>
     <!--<dependency>-->
     <!--<groupId>org.controlsfx</groupId>-->
@@ -65,60 +75,71 @@
   </dependencies>
 
   <build>
-    <directory>target</directory>
     <finalName>${project.name}</finalName>
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.3</version>
-        <configuration>
-          <source>9</source>
-          <target>9</target>
-        </configuration>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>copy-dependencies</id>
+            <phase>package</phase>
+            <goals>
+              <goal>copy-dependencies</goal>
+            </goals>
+            <configuration>
+              <includeScope>runtime</includeScope>
+              <outputDirectory>${project.build.directory}/lib</outputDirectory>
+              <overWriteReleases>false</overWriteReleases>
+              <overWriteSnapshots>true</overWriteSnapshots>
+              <overWriteIfNewer>true</overWriteIfNewer>
+            </configuration>
+          </execution>
+        </executions>
       </plugin>
 
       <plugin>
-        <groupId>com.zenjava</groupId>
-        <artifactId>javafx-maven-plugin</artifactId>
-        <version>9.0.0-SNAPSHOT</version>
-        <configuration>
-          <mainClass>com.bob.CrossRedis</mainClass>
-          <vendor>${project.artifactId}</vendor>
-          <identifier>${project.groupId}.${project.artifactId}</identifier>
-          <!--<bundleArguments>-->
-          <!--<runtime />-->
-          <!--</bundleArguments>-->
-          <jvmArgs>
-            <argument>-Xmx512m</argument>
-          </jvmArgs>
-          <jvmProperties>
-            <java.liberary.path>.</java.liberary.path>
-          </jvmProperties>
-          <nativeReleaseVersion>${project.version}</nativeReleaseVersion>
-          <verbose>true</verbose>
-          <keyStoreAlias>example-user</keyStoreAlias>
-          <keyStorePassword>example-password</keyStorePassword>
-          <allPermissions>true</allPermissions>
-        </configuration>
-      </plugin>
-
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-shade-plugin</artifactId>
-        <version>1.2.1</version>
+        <artifactId>maven-antrun-plugin</artifactId>
+        <version>1.8</version>
         <executions>
           <execution>
             <phase>package</phase>
             <goals>
-              <goal>shade</goal>
+              <goal>run</goal>
             </goals>
             <configuration>
-              <transformers>
-                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                  <mainClass>com.bob.CrossRedis</mainClass>
-                </transformer>
-              </transformers>
+              <target xmlns:fx="javafx:com.sun.javafx.tools.ant">
+
+                <taskdef resource="com/sun/javafx/tools/ant/antlib.xml"
+                         uri="javafx:com.sun.javafx.tools.ant"
+                         classpath="${JAVA_HOME}/lib/ant-javafx.jar"/>
+
+                <fx:application id="${project.artifactId}"
+                                name="${project.artifactId}"
+                                mainClass="${javafx.main.class}"/>
+
+                <fx:resources id="appRes">
+                  <fx:fileset dir="${project.build.directory}" includes="${project.artifactId}.jar"/>
+                  <fx:fileset dir="${project.build.directory}/lib"/>
+                </fx:resources>
+
+                <fx:jar destfile="${project.build.directory}/${project.artifactId}.jar">
+                  <fx:application refid="${project.artifactId}"/>
+                  <fx:resources refid="appRes"/>
+                  <fileset dir="${project.build.directory}/classes"/>
+                </fx:jar>
+
+                <fx:deploy width="300" height="250"
+                           outdir="${project.build.directory}/native"
+                           embedJNLP="true"
+                           outfile="${project.artifactId}"
+                           nativeBundles="all">
+                  <fx:application refId="${project.artifactId}"/>
+                  <fx:resources refid="appRes"/>
+                  <fx:info title="${project.artifactId}" vendor="${project.groupId}"/>
+                </fx:deploy>
+              </target>
+
             </configuration>
           </execution>
         </executions>
