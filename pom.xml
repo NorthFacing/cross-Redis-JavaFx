@@ -87,21 +87,22 @@
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.7.0</version>
       </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-jar-plugin</artifactId>
-        <version>3.0.2</version>
-        <configuration>
-          <archive>
-            <manifest>
-              <addClasspath>true</addClasspath>
-              <classpathPrefix>lib/</classpathPrefix>
-              <mainClass>${applicationMainClass}</mainClass>
-            </manifest>
-          </archive>
-          <!--<outputDirectory>${project.build.directory}/lib</outputDirectory>-->
-        </configuration>
-      </plugin>
+
+      <!--maven-jar-plugin：hava bug to fix for java9 module system-->
+      <!--<plugin>-->
+      <!--<groupId>org.apache.maven.plugins</groupId>-->
+      <!--<artifactId>maven-jar-plugin</artifactId>-->
+      <!--<version>3.0.2</version>-->
+      <!--<configuration>-->
+      <!--<archive>-->
+      <!--<manifest>-->
+      <!--<mainClass>${applicationMainClass}</mainClass>-->
+      <!--</manifest>-->
+      <!--</archive>-->
+      <!--<outputDirectory>${project.build.directory}/lib</outputDirectory>-->
+      <!--</configuration>-->
+      <!--</plugin>-->
+
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-dependency-plugin</artifactId>
@@ -144,15 +145,18 @@
                                 name="${applicationName}"
                                 mainClass="${applicationMainClass}"/>
 
-                <fx:jar destfile="${project.build.directory}/lib/${applicationName}-jfx.jar">
-                  <fx:application refid="${applicationId}"/>
-                  <fx:fileset dir="${project.build.directory}/classes"/>
-                  <fx:permissions elevated="true"/>
-                </fx:jar>
+                <!--fx:jar: as same as maven-jar-plugin, hava bug to fix for java9 module system-->
+                <!--<fx:jar destfile="${project.build.directory}/lib/${applicationName}.jar">-->
+                <!--<fx:application refid="${applicationId}"/>-->
+                <!--<fx:fileset dir="${project.build.directory}/classes"/>-->
+                <!--<fx:permissions elevated="true"/>-->
+                <!--</fx:jar>-->
+                <exec executable="/bin/sh">
+                  <arg line="${project.basedir}/package.sh"/>
+                </exec>
 
                 <fx:deploy width="300" height="250"
                            outdir="${project.build.directory}/native"
-                           embedJNLP="true"
                            outfile="${applicationName}"
                            verbose="true"
                            module="${module.name}"
@@ -174,6 +178,26 @@
             </configuration>
           </execution>
         </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-toolchains-plugin</artifactId>
+        <executions>
+          <execution>
+            <goals>
+              <goal>toolchain</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <toolchains>
+            <jdk>
+              <version>9</version>
+              <vendor>oracle</vendor>
+            </jdk>
+          </toolchains>
+        </configuration>
       </plugin>
     </plugins>
   </build>

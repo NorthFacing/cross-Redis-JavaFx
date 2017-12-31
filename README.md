@@ -1,13 +1,14 @@
 # crossRedis-JavaFx
 
-## 运行指令
-可以直接启动main函数
+## Run with source code
 
-## 打包指令
+as simple as run the `Main` method in `bob.crossRedis.CrossRedis`.
+
+## Package to image
 ```
 mvn clean package
 ```
-打包之后的文件位于 `target/native`
+the image file in the package: `target/native`
 
 # Libraries Used
 
@@ -15,9 +16,16 @@ mvn clean package
 * [FontawesomeFX](https://bitbucket.org/Jerady/fontawesomefx)- Icon library
 * [lettuce](https://github.com/lettuce-io/lettuce-core) - Redis client for Java
 
-# 参考
-
+# Reference
 * [Oracle - jigsaw](http://openjdk.java.net/projects/jigsaw/quick-start#multimodulecompile)
 * [Oracle - Packaging](https://docs.oracle.com/javase/9/deploy/packaging.htm#JSDPG665)
 * [Oracle - JavaFX Ant Tasks](https://docs.oracle.com/javase/9/deploy/javafx-ant-tasks.htm)
 * [Mac OS 开发 － 聊聊如何打包dmg文件](http://www.jianshu.com/p/c6cd257676bf)
+
+# TO BE DONE
+##  Compile & Package issue
+maven-jar-plugin does not work well for the java9 module system for now, so use shell script instead.
+* [JPMS/Jigsaw Missing Main Class in Module](https://stackoverflow.com/questions/47878694/jpms-jigsaw-missing-main-class-in-module)
+* [Allow setting of module main class](https://issues.apache.org/jira/browse/MJAR-238)
+
+
