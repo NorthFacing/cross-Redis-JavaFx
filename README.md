@@ -10,6 +10,11 @@ mvn clean package
 ```
 the image file in the package: `target/native`
 
+# Commit type
+* [N] new feature
+* [B] bug fix
+* [R] refactor
+
 # Libraries Used
 
 * [JFoenix](https://github.com/jfoenixadmin/JFoenix) - JavaFX Material Design Library
@@ -21,6 +26,7 @@ the image file in the package: `target/native`
 * [Oracle - Packaging](https://docs.oracle.com/javase/9/deploy/packaging.htm#JSDPG665)
 * [Oracle - JavaFX Ant Tasks](https://docs.oracle.com/javase/9/deploy/javafx-ant-tasks.htm)
 * [Mac OS 开发 － 聊聊如何打包dmg文件](http://www.jianshu.com/p/c6cd257676bf)
+* [:smile: - EMOJI CHEAT SHEET](https://www.webpagefx.com/tools/emoji-cheat-sheet/)
 
 # TO BE DONE
 ##  Compile & Package issue
