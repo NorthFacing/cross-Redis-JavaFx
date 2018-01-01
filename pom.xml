@@ -166,11 +166,20 @@
 
                   <fx:permissions elevated="true"/>
 
-                  <fx:info title="${project.artifactId}" vendor="${project.groupId}"/>
-
                   <fx:runtime strip-native-commands="false">
                     <fx:module-path value="${project.build.directory}/lib"/>
                   </fx:runtime>
+
+                  <fx:bundleArgument arg="mac.signing-key-user-name" value="Bob Zhu"/>
+
+                  <fx:info title="${project.artifactId}" vendor="${project.groupId}">
+                    <!--Windows-->
+                    <!--<fx:icon href="${project.build.directory}/classes/jfx_image/icons/crossRedis.ico" depth="24"/>-->
+                    <!--macOS-->
+                    <fx:icon href="${project.build.directory}/classes/jfx_image/icons/crossRedis.icns" depth="24"/>
+                    <!--Linux-->
+                    <!--<fx:icon href="${project.build.directory}/classes/jfx_image/icons/crossRedis.png" depth="24"/>-->
+                  </fx:info>
 
                 </fx:deploy>
               </target>
