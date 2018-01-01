@@ -1,5 +1,6 @@
 package bob.crossRedis;
 
+import bob.crossRedis.utils.LoggerUtil;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -7,21 +8,18 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
-//import org.slf4j.Logger;
-//import org.slf4j.LoggerFactory;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class CrossRedis extends Application {
 
-//	private static Logger logger = LoggerFactory.getLogger(CrossRedis.class);
+	private static final Logger LOGGER = LoggerUtil.getLogger(CrossRedis.class);
 
 	public static void main(String[] args) {
 		try {
 			launch(args);
 		} catch (Exception e) {
-			e.printStackTrace();
-//			logger.error(e.getMessage());
-//			logger.error(e.getCause().toString());
-//			logger.error(e.getStackTrace().toString());
+			LOGGER.log(Level.SEVERE, "CrossRedis application error: ", e);
 		}
 	}
 
