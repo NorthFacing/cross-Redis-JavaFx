@@ -7,37 +7,30 @@
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.StackPane?>
-<?import javafx.scene.layout.VBox?>
 
-<StackPane fx:id="root" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.141"
-           xmlns:fx="http://javafx.com/fxml/1"
-           fx:controller="bob.crossRedis.controllers.MainController">
-  <BorderPane>
-    <top>
-      <MenuBar id="topMenu" useSystemMenuBar="true" BorderPane.alignment="CENTER">
-        <menus>
-          <Menu text="连接">
-            <MenuItem accelerator="Ctrl + N" mnemonicParsing="true" onAction="#addConn" text="新增"/>
-          </Menu>
-          <Menu text="帮助">
-            <MenuItem text="检查更新"/>
-            <MenuItem text="关于"/>
-          </Menu>
-        </menus>
-      </MenuBar>
-    </top>
-    <center>
-      <SplitPane fx:id="centrePane" dividerPositions="0.2, 0.8" stylesheets="@../jfx_css/dark-theme.css" styleClass="root">
-        <VBox fx:id="leftMenu">
-          <StackPane>
-            <fx:define>
-              <JFXTreeView fx:id="connTreeNods"/>
-            </fx:define>
-          </StackPane>
-        </VBox>
-        <StackPane fx:id="mainContent">
-        </StackPane>
-      </SplitPane>
-    </center>
-  </BorderPane>
+<StackPane fx:id="root" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/9"
+           xmlns:fx="http://javafx.com/fxml/1" fx:controller="bob.crossRedis.controllers.MainController">
+    <BorderPane>
+        <top>
+            <MenuBar id="topMenu" useSystemMenuBar="true" BorderPane.alignment="CENTER">
+                <menus>
+                    <Menu text="File">
+                        <MenuItem accelerator="Ctrl + N" mnemonicParsing="true" onAction="#addConn" text="New..."/>
+                    </Menu>
+                    <Menu text="Help">
+                        <MenuItem text="About..."/>
+                    </Menu>
+                </menus>
+            </MenuBar>
+        </top>
+        <center>
+            <SplitPane fx:id="centrePane" dividerPositions="0.2" styleClass="root"
+                       stylesheets="@../jfx_css/dark-theme.css">
+                <JFXTreeView fx:id="treeNodes" prefHeight="598.0" prefWidth="217.0">
+                </JFXTreeView>
+                <StackPane fx:id="mainContent">
+                </StackPane>
+            </SplitPane>
+        </center>
+    </BorderPane>
 </StackPane>

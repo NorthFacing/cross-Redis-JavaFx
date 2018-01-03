@@ -1,5 +1,6 @@
 package bob.crossRedis;
 
+import bob.crossRedis.service.impl.ConnectionImpl;
 import bob.crossRedis.utils.LoggerUtil;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -17,6 +18,9 @@ public class CrossRedis extends Application {
 
 	public static void main(String[] args) {
 		try {
+			ConnectionImpl connection = new ConnectionImpl();
+			connection.login("localhost",6379,"adolphor@redis");
+
 			launch(args);
 		} catch (Exception e) {
 			LOGGER.log(Level.SEVERE, "CrossRedis application error: ", e);
