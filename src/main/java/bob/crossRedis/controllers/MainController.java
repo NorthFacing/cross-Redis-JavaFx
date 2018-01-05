@@ -38,9 +38,8 @@ public class MainController implements Initializable {
 
   public void addTreeNode(String titile, RedisClient client) {
     TreeItem<ConnNode> root = treeNodes.getRoot();
-//    addNode(root, new ConnNode(titile, client));
+    addNode(root, new ConnNode(titile, client));
   }
-
 
   @Override
   public void initialize(URL location, ResourceBundle resources) {

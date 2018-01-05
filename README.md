@@ -34,4 +34,13 @@ maven-jar-plugin does not work well for the java9 module system for now, so use 
 * [JPMS/Jigsaw Missing Main Class in Module](https://stackoverflow.com/questions/47878694/jpms-jigsaw-missing-main-class-in-module)
 * [Allow setting of module main class](https://issues.apache.org/jira/browse/MJAR-238)
 
+## config folder
+* Configuration (crossRedis.config.path):
+    - ~/Library/Preferences/<PRODUCT><VERSION>
+* Caches (crossRedis.system.path):
+    - ~/Library/Caches/<PRODUCT><VERSION>
+* Plugins (crossRedis.plugins.path):
+    - ~/Library/Application Support/<PRODUCT><VERSION>
+* Logs (crossRedis.log.path):
+    - ~/Library/Logs/<PRODUCT><VERSION>
 

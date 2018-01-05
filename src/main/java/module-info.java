@@ -11,8 +11,6 @@ module bob.crossRedis {
 
 	requires lettuce;
 
-	requires lombok;
-
 	exports bob.crossRedis;
 	exports bob.crossRedis.controllers;
 

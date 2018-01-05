@@ -61,13 +61,13 @@
       <version>4.4.2.Final</version>
     </dependency>
 
-    <dependency>
-      <groupId>org.projectlombok</groupId>
-      <artifactId>lombok</artifactId>
-      <version>1.16.19-edge</version>
-      <scope>system</scope>
-      <systemPath>${project.basedir}/lib/lombok-edge.zip</systemPath>
-    </dependency>
+    <!--<dependency>-->
+      <!--<groupId>org.projectlombok</groupId>-->
+      <!--<artifactId>lombok</artifactId>-->
+      <!--<version>1.16.19-edge</version>-->
+      <!--<scope>system</scope>-->
+      <!--<systemPath>${project.basedir}/lib/lombok-edge.zip</systemPath>-->
+    <!--</dependency>-->
 
     <!--<dependency>-->
     <!--<groupId>org.controlsfx</groupId>-->
