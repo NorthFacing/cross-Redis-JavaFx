@@ -5,6 +5,8 @@ import bob.crossRedis.service.impl.ConnectionImpl;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 
+import org.apache.commons.lang3.StringUtils;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -21,6 +23,8 @@ public class NewConnController implements Initializable {
   public JFXTextField port;
   @FXML
   public JFXPasswordField password;
+  @FXML
+  public JFXTextField displayName;
 
   private MainController mainController;
 
@@ -36,7 +40,6 @@ public class NewConnController implements Initializable {
   public void handleLoginButtonAction(ActionEvent event) {
     String hostText = host.getText();
     String portText = port.getText();
-    String passwordText = password.getText();
     int portInt = 0;
     try {
       portInt = Integer.parseInt(portText);
@@ -45,22 +48,26 @@ public class NewConnController implements Initializable {
     } catch (Exception e) {
       port.getStyleClass().add("wrong-credentials");
     }
+    String passwordText = password.getText();
+    String displayNameText = displayName.getText();
+    if (StringUtils.isEmpty(displayNameText)) {
+      displayNameText = hostText + ":" + portInt;
+    }
 
     Connection conn = new ConnectionImpl();
     RedisClient client = conn.login(hostText, portInt, passwordText);
-    mainController.addTreeNode(hostText, client);
+    mainController.addTreeNode(displayNameText, client);
 
+    host.clear();
+    port.clear();
+    password.clear();
+
+    mainController.closeAddStage();
   }
 
   @FXML
   public void handleCancelButtonAction(ActionEvent event) {
     System.exit(0);
-  }
-
-  public static void main(String[] args) {
-    String port = "ab";
-    int anInt = Integer.parseInt(port);
-    System.out.println(anInt);
   }
 
 }

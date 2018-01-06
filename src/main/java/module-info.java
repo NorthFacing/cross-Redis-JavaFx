@@ -10,6 +10,7 @@ module bob.crossRedis {
 	requires de.jensd.fx.glyphs.fontawesome;
 
 	requires lettuce;
+	requires org.apache.commons.lang3;
 
 	exports bob.crossRedis;
 	exports bob.crossRedis.controllers;

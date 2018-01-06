@@ -27,6 +27,7 @@ the image file in the package: `target/native`
 * [Oracle - JavaFX Ant Tasks](https://docs.oracle.com/javase/9/deploy/javafx-ant-tasks.htm)
 * [Mac OS 开发 － 聊聊如何打包dmg文件](http://www.jianshu.com/p/c6cd257676bf)
 * [:smile: - EMOJI CHEAT SHEET](https://www.webpagefx.com/tools/emoji-cheat-sheet/)
+* [OpenJDK - The State of the Module System](http://openjdk.java.net/projects/jigsaw/spec/sotms/#automatic-modules)
 
 # TO BE DONE
 ##  Compile & Package issue

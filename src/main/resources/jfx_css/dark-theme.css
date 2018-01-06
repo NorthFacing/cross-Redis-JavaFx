@@ -1,13 +1,3 @@
-/** {*/
-/*!*-fx-primary: #2A2E37;*!*/
-/*!*-fx-secondary: #FFFF8D;*!*/
-/*!*-fx-primaryText: #B2B2B2;*!*/
-
-/*-fx-backg-color: #2A2E37;*/
-/*-fx-slider-color: #3c3c3c;*/
-/*-fx-simple-text: #B2B2B2;*/
-/*-fx-btn-text: #FFFF8D;*/
-/*}*/
 
 * {
   -fx-primary: #2A2E37;
@@ -18,7 +8,7 @@
   -fx-slider-color: #3c3c3c;
 }
 
-.root {
+.root, .tree-cell {
   -fx-background-color: -fx-primary;
 }
 

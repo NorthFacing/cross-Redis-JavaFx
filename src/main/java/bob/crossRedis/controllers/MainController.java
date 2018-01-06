@@ -36,6 +36,10 @@ public class MainController implements Initializable {
     newConnStage.show();
   }
 
+  public void closeAddStage(){
+    newConnStage.close();
+  }
+
   public void addTreeNode(String titile, RedisClient client) {
     TreeItem<ConnNode> root = treeNodes.getRoot();
     addNode(root, new ConnNode(titile, client));
